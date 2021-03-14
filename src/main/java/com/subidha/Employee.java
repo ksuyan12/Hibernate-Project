@@ -2,16 +2,19 @@ package com.subidha;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "emtable")
 class Employee {  
-
 @Id	
 private int id; 
 private String firstName,lastName;  
-  
+private Address address;
+public Address getAddress() {
+	return address;
+}
+public void setAddress(Address address) {
+	this.address = address;
+}
 public int getId() {  
     return id;  
 }  

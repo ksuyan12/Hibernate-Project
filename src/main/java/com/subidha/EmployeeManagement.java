@@ -12,6 +12,20 @@ public class EmployeeManagement {
 	static Configuration con = new Configuration().configure().addAnnotatedClass(Employee.class);
 	static SessionFactory factory = con.buildSessionFactory();
 	static Session session;  
+	
+	public static void addEmployee(Integer id, String fn, String ln, Address address) {	
+		session = factory.openSession();
+	  Transaction t = session.beginTransaction();  
+	  Employee e = new Employee();
+	  e.setFirstName(fn);
+	  e.setLastName(ln);
+	  e.setId(id);
+	  e.setAddress(address);
+	  session.save(e);
+	  t.commit(); 
+	    
+	   session.close(); 
+	}
 	public static void readEmployee() {	
 		session = factory.openSession();
 		Transaction t = session.beginTransaction();  
@@ -28,7 +42,7 @@ public class EmployeeManagement {
 	public static void updateEmployee(Integer id, String fn, String ln) {	
 		session = factory.openSession();
 		Transaction t = session.beginTransaction();  
-		Employee emp = (Employee) session.get(Employee.class, id);
+		Employee emp = session.get(Employee.class, id);
 	  emp.setFirstName(fn);
 	  emp.setLastName(ln);
 	  session.update(emp);
@@ -40,7 +54,7 @@ public class EmployeeManagement {
 	public static void deleteEmployee(Integer id) {	
 		session = factory.openSession();
 		Transaction t = session.beginTransaction();  
-		Employee emp = (Employee) session.get(Employee.class, id);
+		Employee emp = session.get(Employee.class, id);
 	  
 	   session.delete(emp);		
 	   t.commit(); 

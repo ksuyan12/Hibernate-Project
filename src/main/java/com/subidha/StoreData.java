@@ -1,14 +1,5 @@
 package com.subidha;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;  
-  
-    
 public class StoreData {    
 public static void main(String[] args) {    
         
@@ -20,12 +11,12 @@ public static void main(String[] args) {
 	 //Create typesafe ServiceRegistry object    
  //   StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
           
- // EmployeeManagement.updateEmployee(113, "Santosh", "Chaudhary");   
-	
-  EmployeeManagement.readEmployee();   
-	
-    
-    
+ // EmployeeManagement.updateEmployee(113, "Santosh", "Chaudhary");
+	 Address add = new Address();
+	add.setZipCode("1000");
+	 add.setCity("butwal");
+	  EmployeeManagement.addEmployee(103, "Rachna", "kc", add);
+
     
 }    
 }
