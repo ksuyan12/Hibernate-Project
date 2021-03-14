@@ -1,36 +1,31 @@
 package com.subidha;
 
-import org.hibernate.Session;    
-import org.hibernate.SessionFactory;    
-import org.hibernate.Transaction;  
-import org.hibernate.boot.Metadata;  
-import org.hibernate.boot.MetadataSources;  
-import org.hibernate.boot.registry.StandardServiceRegistry;  
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;  
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;  
   
     
 public class StoreData {    
 public static void main(String[] args) {    
         
-    //Create typesafe ServiceRegistry object    
-    StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
+    
+//Employee e1=new Employee();    
+//e1.setId(115);    
+//e1.setFirstName("Pratap");    
+//e1.setLastName("Kc");    
+	 //Create typesafe ServiceRegistry object    
+ //   StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
           
-   Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();  
-  
-SessionFactory factory = meta.getSessionFactoryBuilder().build();  
-Session session = factory.openSession();  
-Transaction t = session.beginTransaction();   
-            
-    Employee e1=new Employee();    
-    e1.setId(112);    
-    e1.setFirstName("Gaurav");    
-    e1.setLastName("Chawla");    
-        
-    session.save(e1);  
-    t.commit();  
-    System.out.println("successfully saved");    
-    factory.close();  
-    session.close();    
-        
+ // EmployeeManagement.updateEmployee(113, "Santosh", "Chaudhary");   
+	
+  EmployeeManagement.deleteEmployee(113);   
+	
+    
+    
+    
 }    
 }

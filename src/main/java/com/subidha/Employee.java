@@ -3,10 +3,12 @@ package com.subidha;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
+@Table(name = "emtable")
 class Employee {  
 
-@Id
+@Id	
 private int id; 
 private String firstName,lastName;  
   
