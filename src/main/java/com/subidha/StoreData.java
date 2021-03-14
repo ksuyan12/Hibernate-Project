@@ -22,7 +22,7 @@ public static void main(String[] args) {
           
  // EmployeeManagement.updateEmployee(113, "Santosh", "Chaudhary");   
 	
-  EmployeeManagement.deleteEmployee(113);   
+  EmployeeManagement.readEmployee();   
 	
     
     

@@ -1,5 +1,8 @@
 package com.subidha;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,6 +12,19 @@ public class EmployeeManagement {
 	static Configuration con = new Configuration().configure().addAnnotatedClass(Employee.class);
 	static SessionFactory factory = con.buildSessionFactory();
 	static Session session;  
+	public static void readEmployee() {	
+		session = factory.openSession();
+		Transaction t = session.beginTransaction();  
+	  List emps = session.createQuery("From Employee").list();
+	  Iterator itr = emps.iterator();
+	  while(itr.hasNext()){
+		  Employee e = (Employee) itr.next();
+		 System.out.println(e.getFirstName() + " " + e.getLastName());  
+	  }	
+	   t.commit(); 
+	    
+	   session.close(); 
+	}
 	public static void updateEmployee(Integer id, String fn, String ln) {	
 		session = factory.openSession();
 		Transaction t = session.beginTransaction();  
