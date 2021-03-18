@@ -15,7 +15,7 @@ public static void main(String[] args) {
 //	  EmployeeManagement.updateEmployee(2, "Santosh", "Chaudhary");
 	  
 //	  EmployeeManagement.deleteEmployee(151);
-	 EmployeeManagement.readEmployee(151);
+	 EmployeeManagement.readEmployee();
 	 
 
     

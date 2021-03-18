@@ -3,6 +3,7 @@ package com.subidha;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -29,8 +30,14 @@ public class EmployeeManagement {
 	}
 	public static void readEmployee() {	
 		session = factory.openSession();
-		Transaction t = session.beginTransaction();  
-	  List<Employee> emps = session.createQuery("From Employee").list();
+		Transaction t = session.beginTransaction(); 
+		
+		String sql = "Select * from employee where firstName like 'S%'";
+		SQLQuery query = session.createSQLQuery(sql);
+		query.addEntity(Employee.class);
+		List emps = query.list();
+		
+		List<Employee> emps = session.createQuery("select * From Employee").list();
 	  Iterator itr = emps.iterator();
 	  while(itr.hasNext()){
 		  Employee e = (Employee) itr.next();
