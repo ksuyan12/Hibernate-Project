@@ -1,19 +1,40 @@
 package com.subidha;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Entity
-class Employee {  
+@SequenceGenerator(name="eseq", initialValue=100, allocationSize = 1)
+public class Employee {  
 @Id	
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eseq")
 private int id; 
 private String firstName,lastName;  
+
+@Autowired
 private Address address;
+
 public Address getAddress() {
 	return address;
 }
 public void setAddress(Address address) {
 	this.address = address;
+}
+@OneToOne
+private Laptop laptop;
+
+public Laptop getLaptop() {
+	return laptop;
+}
+public void setLaptop(Laptop laptop) {
+	this.laptop = laptop;
 }
 public int getId() {  
     return id;  

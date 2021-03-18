@@ -4,18 +4,19 @@ public class StoreData {
 public static void main(String[] args) {    
         
     
-//Employee e1=new Employee();    
-//e1.setId(115);    
-//e1.setFirstName("Pratap");    
-//e1.setLastName("Kc");    
-	 //Create typesafe ServiceRegistry object    
- //   StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  
-          
- // EmployeeManagement.updateEmployee(113, "Santosh", "Chaudhary");
 	 Address add = new Address();
-	add.setZipCode("1000");
-	 add.setCity("butwal");
-	  EmployeeManagement.addEmployee(103, "Rachna", "kc", add);
+	 add.setZipCode("3290");
+	 add.setCity("birgunj"); 
+	 
+	 Laptop lap = new Laptop();
+	 lap.setLname("hp");
+	 
+//	  EmployeeManagement.addEmployee("santosh", "Kc", add,  lap);
+//	  EmployeeManagement.updateEmployee(2, "Santosh", "Chaudhary");
+	  
+//	  EmployeeManagement.deleteEmployee(151);
+	 EmployeeManagement.readEmployee(151);
+	 
 
     
 }    
