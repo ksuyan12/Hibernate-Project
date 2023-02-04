@@ -10,7 +10,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class EmployeeManagement {
-	static Configuration con = new Configuration().configure().addAnnotatedClass(Employee.class).addAnnotatedClass(Laptop.class);
+	static Configuration con = new Configuration()
+			.configure()
+			.addAnnotatedClass(Employee.class)
+			.addAnnotatedClass(Laptop.class);
 	static SessionFactory factory = con.buildSessionFactory();
 	static Session session;  
 	
@@ -32,16 +35,17 @@ public class EmployeeManagement {
 		session = factory.openSession();
 		Transaction t = session.beginTransaction(); 
 		
-		String sql = "Select * from employee where firstName like 'S%'";
-		SQLQuery query = session.createSQLQuery(sql);
-		query.addEntity(Employee.class);
-		List emps = query.list();
+//		String sql = "Select * from employee where firstName like 'S%'";
+//		SQLQuery query = session.createSQLQuery(sql);
+//		query.addEntity(Employee.class);
+//		List emps = query.list();
 		
-		List<Employee> emps = session.createQuery("select * From Employee").list();
+		List<Employee> emps = session.createQuery("From Employee").list();
 	  Iterator itr = emps.iterator();
 	  while(itr.hasNext()){
 		  Employee e = (Employee) itr.next();
-		 System.out.println(e.getFirstName() + " " + e.getLastName());  
+		  e.getLaptop();
+		 System.out.println(e.getFirstName() + " " + e.getLastName());
 	  }	
 	   t.commit(); 
 	    

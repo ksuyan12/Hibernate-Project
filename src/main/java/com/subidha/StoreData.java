@@ -11,7 +11,7 @@ public static void main(String[] args) {
 	 Laptop lap = new Laptop();
 	 lap.setLname("hp");
 	 
-//	  EmployeeManagement.addEmployee("santosh", "Kc", add,  lap);
+	  EmployeeManagement.addEmployee("santosh", "Kc", add,  lap);
 //	  EmployeeManagement.updateEmployee(2, "Santosh", "Chaudhary");
 	  
 //	  EmployeeManagement.deleteEmployee(151);
